@@ -1,0 +1,171 @@
+@use 'colors' as *;
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Caveat', cursive;
+	font-size: 1.8rem;
+	color: $black;
+	background-color: $grey;
+	overflow-x: hidden;
+}
+
+// main changes
+
+.container {
+	margin: 0 auto;
+	padding: 0 1em;
+	width: 100%;
+	max-width: 1200px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.btn {
+	display: block;
+	width: fit-content;
+	padding: 0.7em 0.7em;
+	background-color: #fff;
+	font-size: 2rem;
+	color: $black;
+	border: 2px solid $black;
+	font-weight: 600;
+}
+
+// preloader
+
+.preloader {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	width: 100%;
+	background-color: $white;
+	z-index: 1000;
+	opacity: 1;
+	transition: opacity 0.5s linear;
+	pointer-events: none;
+
+	img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.5s linear;
+		opacity: 1;
+	}
+
+	&.loaded {
+		opacity: 0;
+
+		img {
+			opacity: 0;
+		}
+	}
+}
+
+// nav
+
+.navbar {
+	position: fixed;
+	width: 100%;
+	padding: 1em 0;
+	z-index: 100;
+	&__box {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__menu {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		a {
+			padding: 0 1em;
+			font-size: 3rem;
+			color: $black;
+		}
+	}
+}
+
+// header
+
+.header {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: calc(100vh);
+	overflow: hidden;
+	z-index: 1;
+	&__bg {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: -5;
+	}
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__btns {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em;
+		margin-top: 1em;
+	}
+
+	&__title {
+		font-size: 8.2rem;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(255, 255, 255, 0.5);
+		z-index: -1;
+	}
+}
+
+// footer
+
+.footer {
+	position: fixed;
+	color: $black;
+	width: 100%;
+	bottom: 0;
+	background-color: transparent;
+	padding: 1em 0;
+	z-index: 100;
+
+	&__box {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		a {
+			color: black;
+		}
+	}
+}
